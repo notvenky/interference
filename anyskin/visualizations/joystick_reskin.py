@@ -32,16 +32,16 @@ def visualize(port, file=None, viz_mode="3axis", scaling=7.0, record=False):
     bg_image = pygame.image.load(bg_image_path)
     image_width, image_height = bg_image.get_size()
     aspect_ratio = image_height / image_width
-    desired_width = 400
+    desired_width = 800
     desired_height = int(desired_width * aspect_ratio)
 
     chip_locations = np.array(
         [
-            [204, 222],  # center
-            [130, 222],  # left
-            [279, 222],  # right
-            [204, 157],  # up
-            [204, 290],  # down
+            [414, 444],  # center
+            [264, 443],  # left
+            [556, 444],  # right
+            [410, 311],  # up
+            [414, 584],  # down
         ]
     )
     # chip_xy_rotations = np.array([np.pi, np.pi, 5*np.pi/2, 2*np.pi, 3*np.pi/2])
@@ -165,7 +165,7 @@ def default_viz(argv=sys.argv):
 if __name__ == "__main__":
     # fmt: off
     parser = argparse.ArgumentParser(description="Test code to run a AnySkin streaming process in the background. Allows data to be collected without code blocking")
-    parser.add_argument("-p", "--port", type=str, help="port to which the microcontroller is connected", default="/dev/cu.usbmodem101")
+    parser.add_argument("-p", "--port", type=str, help="port to which the microcontroller is connected", default="/dev/ttyACM0")
     parser.add_argument("-f", "--file", type=str, help="path to load data from", default=None)
     parser.add_argument("-v", "--viz_mode", type=str, help="visualization mode", default="3axis", choices=["magnitude", "3axis"])
     parser.add_argument("-s", "--scaling", type=float, help="scaling factor for visualization", default=2.0)
